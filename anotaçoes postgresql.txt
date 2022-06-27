@@ -1,0 +1,55 @@
+Banco de dados relacional
+root porta 5432
+
+opção alternativa pra quem nao utiliza windows
+usar docker - docker compose up
+inicia o banco de dados e habilitado para receber conexoes /dt lista as tabelas
+o docker é mais componentizável
+
+postgres + node
+é necessário driver de conexão
+
+
+npm init -y
+npm install --save pg
+
+arquivo de configuração utiliza _
+comando require importa um modulo
+
+const pg = require('pg')
+
+const client = new pg.Client({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'postgres',
+  password: 'postgres',
+  port: 5432,
+})
+
+module.exports = client
+
+cascade deleta todas as dependencias
+
+ORM mapeamento objeto relacional
+exemplos: Hibernate, Data Mapper, sequelize.
+sequelize é versátil e robusto
+
+npm install --save sequelize
+
+SQL usa a estrutura de dados guardados em tabelas
+
+NoSQL é mais indicado para aqueles sistemas com maior necessidade de armazenamento e desempenho
+
+MongoDB
+banco de dados orientado a documentos no formato JSON
+um conjunto de collections forma um banco de dados
+
+Sharding usados para dividir os dados de uma collection entre mais de uma servidor
+
+Capped Collections : tamanhos predefinidos e com conteúdo rotativo
+
+mongoose
+
+
+
+

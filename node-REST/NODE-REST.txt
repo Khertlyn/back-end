@@ -1,0 +1,39 @@
+api REST
+conjunto de padroes
+
+CRUD de usuários
+GET /users
+GET /users/:uuid
+POST /users
+PUT /users/:uuid
+DELETE /users/:uuid
+
+AUTENTICAÇÃO
+POST /token
+POST /token/validate
+
+instalando typescript
+npm install -g typescript
+tsc --init
+apaga os comentários do aquivo gerado tsconfig.json
+npm install --save-dev @types/node
+
+npm install --save express
+
+npm install --save-dev @types/express
+
+Controle de alterações
+npm install --save-dev ts-node-dev
+
+npm install --save http-status-codes
+
+npm install --save pg
+
+npm install --save-dev @types/pg
+
+
+promisse é resultado assincrono
+
+
+
+

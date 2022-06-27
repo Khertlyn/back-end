@@ -1,0 +1,86 @@
+JWT JSON Web Token
+Usa dependencia jsonwebtoken no arquivo package.json
+
+formado por tres sessões:Header, Payload e Signature
+
+Authorization: Bearer <token>
+
+crio pasta services (dentro de src) arquivo auth.js
+
+import jwt from 'jsonwebtoken' 
+import config from '../config'
+const generateToken = (payload) => {
+return jwt.sign(payload, config.privateKey, config.authOptions)
+}
+
+export {generateToken,}
+
+arquivo config.js (dentro da pasta src)
+import fs from 'fs'
+import path from 'path'
+
+const privateKey = fs.readFileSync(path.resolve(_dirname, './private.key'), 'utf8')
+const publicKey = fs.readFileSync(path.resolve(_dirname, './public.key'), 'utf8')
+
+export default {
+privateKey,
+publickey,
+authOptions: {
+expiresIn:'12h',( pode ser 30s , o que preferir)
+algorithm: 'RS256',
+}
+}
+
+
+crio pasta middlewares arquivo auth.js
+
+import jwt e config
+
+const verifyToken = async (req, res, next) => {
+const token = req.headers.authorization && req.headers.authorization.split(" ")[0] ==='Bearer'
+? req.headers.authorization.split(" ")[1]
+:(req.body.token || req.query.token || req.headers['x.access-token'])
+
+if(!token) {
+return next()
+}
+
+try {
+const decodedToken = await jwt.verify(token, config.publicKey, config.authOptions)
+req.decoded = decodedToken
+next()
+}catch (error) {
+res.status(401).send({
+error:'Token não informado ou inválido!'
+})
+}
+}
+
+const protctRoute = (req, res, next) => {
+if(req.decoded){
+return next ()
+}
+
+res.status(401).send({
+error: 'Não autorizado!'
+})
+
+export {
+verifyToken,
+protectRoute,
+}
+
+payload é o objeto que vai guardar as informações do usuário 
+
+no arquivo index.js
+const token = generateToken(payload)
+res.send({
+token})
+
+app.get('/protected', protectRoute, (req,res) = res.send(req.decoded))
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+hapi - similar ao express JS
+Um framework para construir aplicações e serviços
+dá uma extrutura básica
+
+boom faz tratamento dos erros
+Joi faz validação - ex. nome, email
+
+
+criando rota - ex: Posts
+
+**Ir no index e importar a rota
+import postsRoute from./routes/postsRoute
+
+apos declarar port e server chamar a função
+postsRoute ()
+
+**No arquivo postsRoute.js (dentro da pasta routes)
+importar as bibliotecas usadas 
+declarar const postsController = new PostsController(PostsModel)
+
+const postsRoute = (server) => {
+server.route({
+method 'GET', **pode ser POST,PUT
+Path: '/posts/{id?}',
+handler: (request) => postsController.find(request)
+Em caso do método POST utiliza create ao invés de find e utiliza o objeto especial h que tem no hapi pra customizar a reposta no servidor 
+})
+
+server.route({
+method 'POST', 
+Path: '/posts',
+handler: (request,h) => postsController.create(request,h)
+}) 
+
+}
+module.exports = postsRoute
+
+**No arquivo posts.js (dentro da pasta posts.js)
+importar bibliotecas 
+class PostsController {
+constructor (posts) {
+this.Posts = Posts;
+}
+escreve as funções assincronas
+find, create, update, delete
+async find(request) {
+const {id} = request.params
+const query = {}
+
+if (id) {
+query._id = id
+}
+
+try{
+const posts = await this.Posts.find(query)
+return {posts}
+}
+catch (error) {
+return Boom.badRequest(error)
+}
+}
+
+async create(request,h,err) {
+try {
+const post = new this.Posts
+await post.save()
+
+return h.response().code(201)
+}
+catch (error) {
+return Boom.badRequest(error)
+}
+}
+
+para o update (PUT) o id é obrigatorio 
+utiliza método findOneAndUpdate
+
+para o delete
+findOneAndDelete
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+qualidade
+o time deve definir os padroes do projeto
+
+legibilidade  = menor número de linhas possível
+
+Nomes de classes, constantes e fnções devem ter declarações expressivas
+
+Manutenibilidade
+Estabilidade: 
+Flexibilidade:
+Usabilidade:
+
+Ferramenta Lint
+erros de estilo e estrutura
+
+ESLint
+já vem com regras padrão para análise de código que  podem ser adicionadas ou desativadas
+
+npm i eslint
+./node_modules/.bin/eslint --init
+escolher opção de como quero executar o ESLint
+
+TDD Desenvolvimento guiado por teste
+
+ciclos TDD
+Red = antes da funcionalidade ser implementada para que o teste quebre
+Green = funcionalidade é adicionada para que o teste passe, não é necessário a lógica
+Refator = adiciona a lógica necessária
+
+tipos de testes
+Unidade (Unit Tests) = de baixo nível, tendem a ser mais rapidamente executados
+
+Integração (Integration Tests) = verifica se a comunicação entre os componentes de um sistema está ocorrendo conforme esperado
+
+Integração de Contrato (Integration Contract Tests)
+ganharam força devido ao crescimento das APIS e dos micro serviços
+
+
+
+
+

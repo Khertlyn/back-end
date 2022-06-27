@@ -1,0 +1,7 @@
+Short polling = requisições AJAX feitas em intervalos curtos
+long pooling = mantém a conexão HTTP aberta até o servidor ter dados disponíveis para passar para o cliente
+websocket uma aplicação TCP que escuta uma porta de um servidor que segue um protocolo específico, se comunica diretamente com o servidor, full-duplex
+usado em aplicações que requerem atualizações regulares e rápidas a partir de um webserver
+
+socket.IO
+oferece uma API simples baseada em eventos

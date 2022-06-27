@@ -1,0 +1,53 @@
+node 
+utiliza javascript como linguagem de programação
+event loops
+assincronicidade
+processos de i/o não bloqueante
+servidor de alta performance
+
+Express - 
+npm init
+npm install express --save
+
+framework web minimalista e rápido
+
+CLI
+disponibiliza uma interface de linha de cmd para executar tarefas no terminal
+automatiza uma tarefa através de um arquivo
+pode ser distribuída facilmente
+
+commander.js
+ferramenta completa para criação de CLIs em Node.js
+import program from 'commander'
+
+Pug
+criação de templates HTML
+Economiza código
+É possível escrever JS
+
+TAGS html podem ser usadas como parâmetro dentro da função
+
+
+let cont = 0;
+let n = 0;
+let soma = 0;
+
+//TODO: Complete os espaços em branco com uma possível solução para o desafio
+
+do {
+  
+n = parseInt(gets());
+
+if (n>0){
+  cont+=1
+  soma+=n
+}
+
+}while (n > 0);
+
+media=soma/cont;
+
+print(media.toFixed(2));
+
+
+

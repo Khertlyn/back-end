@@ -1,0 +1,23 @@
+create table 
+insert into
+
+clausula condicional mysql WHERE
+
+update pessoa set nome="Khertlyn" where id=2;
+
+delete from pessoa where id=1;
+
+select * from pessoa order by nome; (desc)
+
+select count(id), genero from pessoa group by genero.
+
+clausula JOIN
+
+select * from videos_canais as vc join videos as v on vc.fk_video = v.id_videos
+
+join canais AS c ON vc.fk_canal = c.id_canal
+
+para trazer resultados que tem relacionamento nulo eu passo right outer join ou left...
+
+
+
